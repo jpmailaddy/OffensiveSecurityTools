@@ -15,7 +15,7 @@
 
 ## Getting it to run: 
 
-The one finicky thing about this is it wants the shuffledns folder in the same directory. Go to https://github.com/projectdiscovery/shuffledns/releases and download the package into the same folder where you put the Subdomain_script.sh and extract the file there. 
+The one finicky thing about this is it wants the shuffledns folder in the same directory. Go to https://github.com/projectdiscovery/shuffledns/releases and download the latest package into the same folder where you put the Subdomain_script.sh, extract the zip file there and rename the folder 'shuffledns'. 
 
 ## Usage
 
