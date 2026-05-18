@@ -1,4 +1,4 @@
-# OffensiveSecurityTools
+# Subdomain Enumeration Tool
 
 ## Requires the following tools:
 
