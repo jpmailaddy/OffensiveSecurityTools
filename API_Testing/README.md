@@ -77,9 +77,3 @@ Every finding includes a stable ID (`APITEST-CORS-REFLECTIVE-ORIGIN`), severity
 guidance.
 
 ```
-
-v1: feature-complete CLI scanner.
-
-## License
-
-For personal and authorized security-testing use.
