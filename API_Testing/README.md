@@ -76,40 +76,9 @@ Every finding includes a stable ID (`APITEST-CORS-REFLECTIVE-ORIGIN`), severity
 (info/low/medium/high/critical), OWASP category tag, evidence, and remediation
 guidance.
 
-## Checks implemented
-
-| ID prefix | What it catches |
-|-----------|-----------------|
-| `APITEST-CORS-*` | Wildcard ACAO, wildcard with credentials, reflective Origin |
-| `APITEST-HEADER-*` | Missing X-Content-Type-Options, X-Frame-Options, CSP, HSTS, Referrer-Policy; Server / X-Powered-By disclosure |
-| `APITEST-DEBUG-*` | Werkzeug `/console`, Spring `/actuator/*`, Go `/debug/pprof`, `.git/HEAD`, `.env`, Apache mod_status/mod_info, WordPress user-enum |
-| `APITEST-GRAPHQL-INTROSPECTION-ENABLED` | Introspection open on a public endpoint |
-| `APITEST-VERBOSE-ERROR` | Python/Java/Spring/PHP/Rails/ASP.NET stack traces in body |
-| `APITEST-SENSITIVE-*` | `/admin`, `/backup`, `/secret`, `/private`, `/config`, `/debug` reachable |
-
-## Architecture
-
 ```
-cmd/apitest/main.go              CLI entry (cobra)
-internal/authz                   confirmation prompt + hash-chained audit log
-internal/classify                REST/SOAP/GraphQL detection
-internal/fingerprint             product/version extraction
-internal/spec                    OpenAPI 2/3 parser + GraphQL introspection
-internal/discover                wordlist enum, soft-404 baseline, HTML crawl, method probing
-internal/checks                  OWASP API Top 10 passive checks
-internal/scan                    orchestrator + HTTP client (proxy, rate limit, headers)
-```
-
-Each package is independent. `scan.Scanner` is the library entry point — a
-future web server or other front-end can drive a scan without going through
-the CLI.
-
-## Status
 
 v1: feature-complete CLI scanner.
-
-Planned v2: local web dashboard (server + SQLite-backed scan history) on top
-of the same scanner library. CLI continues working unchanged.
 
 ## License
 
